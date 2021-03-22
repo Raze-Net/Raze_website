@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57">
+    <defs>
+        <linearGradient id="t38jkovxma" x1="0%" x2="100%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="#5C00EB"/>
+            <stop offset="100%" stop-color="#63A3DE"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g transform="translate(-254 -7444) translate(255 7445)">
+                <circle cx="27.3" cy="27.3" r="27.3" stroke="url(#t38jkovxma)" stroke-width="1.4"/>
+                <g fill="#FFF" fill-rule="nonzero" opacity=".9">
+                    <path d="M.013 2.374l12.679 11.414c.249.224.627.224.877 0l12.68-11.412.01.123c.003.042.004.085.004.127v14.445c0 1.45-1.176 2.626-2.626 2.626H2.627C1.175 19.697 0 18.521 0 17.071V2.626c0-.085.004-.17.013-.252zM24.552 0c.272 0 .516.167.614.421.098.254.028.542-.174.724L13.57 11.423c-.25.224-.628.224-.877 0L1.27 1.145C1.07.963 1 .675 1.097.421 1.195.167 1.439 0 1.71 0h22.84z" transform="translate(14 17.5)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

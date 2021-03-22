@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="63" height="63" viewBox="0 0 63 63">
+    <defs>
+        <linearGradient id="jl5dj3rx1c" x1="0%" x2="100%" y1="100%" y2="0%">
+            <stop offset="0%" stop-color="#5C00EB"/>
+            <stop offset="100%" stop-color="#63A3DE"/>
+        </linearGradient>
+        <filter id="kxo87x7wda" width="120.7%" height="120.7%" x="-10.4%" y="-8.5%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" operator="dilate" radius=".7" result="shadowSpreadOuter1"/>
+            <feOffset dy="1" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feMorphology in="SourceAlpha" radius="1" result="shadowInner"/>
+            <feOffset dy="1" in="shadowInner" result="shadowInner"/>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0.215489556 0 0 0 0 0.01475813 0 0 0 0 0.389516637 0 0 0 0.961832113 0"/>
+        </filter>
+        <circle id="wl3qtttkdb" cx="27.5" cy="27.5" r="27.5"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g transform="translate(-390 -7442) translate(394 7445)">
+                    <use fill="#000" filter="url(#kxo87x7wda)" xlink:href="#wl3qtttkdb"/>
+                    <use stroke="url(#jl5dj3rx1c)" stroke-width="1.4" xlink:href="#wl3qtttkdb"/>
+                </g>
+                <g fill="#FFF" fill-rule="nonzero" opacity=".9">
+                    <path d="M8.91 27.2c0-.43-.016-1.57-.025-3.082-5.04 1.095-6.103-2.43-6.103-2.43C1.957 19.598.77 19.04.77 19.04c-1.646-1.123.123-1.102.123-1.102 1.819.128 2.777 1.868 2.777 1.868 1.615 2.769 4.24 1.969 5.273 1.506.164-1.172.633-1.971 1.15-2.423C6.07 18.43 1.84 16.876 1.84 9.933c0-1.979.706-3.596 1.866-4.863-.187-.459-.808-2.3.177-4.795 0 0 1.522-.488 4.983 1.857 1.478-.403 3.003-.607 4.535-.61 1.54.007 3.09.209 4.537.61C21.397-.213 22.916.275 22.916.275c.988 2.494.365 4.336.18 4.795 1.162 1.267 1.862 2.884 1.862 4.863 0 6.961-4.236 8.491-8.274 8.94.652.56 1.23 1.666 1.23 3.356 0 2.422-.021 4.377-.021 4.971 0 .484-8.984.48-8.984 0z" transform="translate(-390 -7442) translate(394 7445) translate(14.929 14.929)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

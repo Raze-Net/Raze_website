@@ -1,0 +1,91 @@
+section.el-container.is-vertical {
+  margin: 0;
+  padding: 0;
+}
+.el-menu {
+  background-color: transparent;
+}
+.el-menu--horizontal .el-menu-item:not(.is-disabled):hover,
+.el-menu--horizontal .el-submenu:not(.is-disabled):hover {
+  background-color: transparent !important;
+}
+
+.el-menu--horizontal>.el-menu-item {
+  margin: 0;
+}
+
+.el-menu.el-menu--horizontal {
+  border-bottom: 0;
+}
+.el-button {
+  padding: 1px;
+  color: #fff;
+  background: linear-gradient(45deg, #6601ff, #dc4752);
+  border: 0;
+  border-radius: 5px;
+}
+.el-button span{
+  display: block;
+  padding: 10px 20px;
+  background: #1a1d27;
+  border-radius: 4px;
+}
+.first-play .el-button span {
+  padding: 20px 30px;
+}
+.el-button a{
+  padding: 0.75rem 0;
+}
+.el-button {
+  color: #fff;
+}
+.el-button .el-icon-arrow-down {
+  font-weight: bolder;
+}
+.hy-lang .el-button.is-round {
+  padding: 10px 18px;
+}
+.el-menu--horizontal>.el-menu-item,
+.el-menu--horizontal>.el-submenu {
+  /* color: #fff !important; */
+  height: 4.5rem;
+  line-height: 4.5rem;
+}
+.el-menu--horizontal>.el-menu-item:hover,
+.el-menu--horizontal>.el-submenu:hover {
+  color: rgb(255, 255, 255) !important;
+}
+
+.el-menu--horizontal>.el-menu-item span:hover,
+.el-menu--horizontal>.el-menu-item .pop a:hover {
+  color: #de637a !important;
+}
+.el-menu--horizontal>.el-menu-item.is-active,
+.el-menu--horizontal>.el-submenu.is-active {
+  border-bottom-color: transparent!important;
+  background-color: transparent !important;
+}
+.el-dropdown-menu.el-popper {
+  top: 60px!important;
+}
+.hy-bottom-band .el-col-sm-offset-2 {
+  margin-left: 10%;
+}
+.el-button--primary:hover {
+  background: rgb(222, 99, 122);
+}
+
+@media (max-width: 768px) {
+  .el-menu--horizontal>.el-menu-item {
+    padding: 0 4px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  .el-button {
+    font-size: 12px;
+  }
+  .el-button span {
+    padding: 5px 10px;
+  }
+}
+
