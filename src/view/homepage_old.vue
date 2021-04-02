@@ -1,5 +1,6 @@
 <template>
-  <div class="main" id="top">
+  <div class="main">
+    <div id="top"></div>
     <section class="position-relative d-flex align-center first-section-height py-0" :style="{height: clientHeight}">
       <!-- <wave></wave> -->
       <wave-more></wave-more>
@@ -7,20 +8,20 @@
 
       <div class="breathe-btn first-section-bg" :style="breatheStyle"></div>
       <div class="first-section">
-        <div class="banner-text">
-          <h2>Building a Cross-chain Privacy Middleware for DeFi and Web3.0</h2>
-          <p>Raze Network is a Substrate-based Cross-chain Privacy Protocol for the Polkadot Ecosystem.</p>
-          <el-row type="flex" justify="center">
-            <!-- <el-col>
+        <div class="banner-text" :style="bannerStyle">
+          <h2 :style="bannerTextStyle">Building a Cross-chain Privacy Middleware for DeFi and Web3.0</h2>
+          <p :style="bannerTextPStyle">Raze Network is a Substrate-based Cross-chain Privacy Protocol for the Polkadot Ecosystem.</p>
+          <el-row type="flex" justify="center" class="banner-btn">
+            <el-col>
               <div class="first-play">
-                <el-button>
-                  <img :src="play" alt="">
-                  Play Video
+                <el-button @click="toWhitepaper">
+                  <img :src="doc" alt="">
+                  Whitepaper
                 </el-button>
               </div>
-            </el-col> -->
+            </el-col>
             <el-col>
-              <div class="first-polkadot d-flex align-center justify-center mt-2 cui-pointer" @click="toPolkadot">
+              <div class="first-polkadot d-flex align-center justify-center cui-pointer" @click="toPolkadot">
                 <img :src="polkadot" alt="">
                 <div>
                   <div>Powered by</div>
@@ -29,6 +30,30 @@
               </div>
             </el-col>
           </el-row>
+          <!-- <div class="banner-line">
+            Join our Community
+            <div class="right-line"></div>
+          </div>
+          <div class="banner-link">
+            <a href="https://t.me/Raze_Net">
+              <img :src="telegram" alt="">
+            </a>
+            <a href="https://twitter.com/R4ZE_Network">
+              <img :src="twitter" alt="">
+            </a>
+            <a href="mailto:contact@raze.network">
+              <img :src="email" alt="">
+            </a>
+            <a href="https://raze.network">
+              <img :src="website" alt="">
+            </a>
+            <a href="https://github.com/Raze-Net">
+              <img :src="github" alt="">
+            </a>
+            <a href="https://raze-net.medium.com/">
+              <img :src="medium" alt="">
+            </a>
+          </div> -->
         </div>
       </div>
     </section>
@@ -371,10 +396,16 @@
           </div>
         </div>
       </section>
-      <section class="pb-19">
+      <section>
         <div class="nineth-section">
           <h3>Strategic Investors</h3>
           <img :src="strategic" alt="" class="w-100 strategic">
+        </div>
+      </section>
+      <section class="pb-19">
+        <div class="nineth-section">
+          <h3>Media Press</h3>
+          <img :src="mediaPress" alt="" class="w-100 strategic">
         </div>
       </section>
       <section class="pb-2 pt-3">
@@ -387,7 +418,7 @@
                 <a href="https://t.me/Raze_Net">
                   <img :src="telegram" alt="">
                 </a>
-                <a href="https://twitter.com/Raze_Net">
+                <a href="https://twitter.com/R4ZE_Network">
                   <img :src="twitter" alt="">
                 </a>
                 <a href="mailto:contact@raze.network">
@@ -418,7 +449,7 @@
             <a href="https://t.me/Raze_Net">
               <img :src="telegram" alt="">
             </a>
-            <a href="https://twitter.com/Raze_Net">
+            <a href="https://twitter.com/R4ZE_Network">
               <img :src="twitter" alt="">
             </a>
             <a href="mailto:contact@raze.network">
@@ -445,7 +476,9 @@ import wave from '@/components/wave'
 import waveMore from '@/components/waveMore'
 import logo from '@/assets/logo.png'
 import play from '@/assets/img/play.png'
+import doc from '@/assets/img/doc.svg'
 import strategic from '@/assets/img/strategic.png'
+import mediaPress from '@/assets/img/media-press.png'
 import polkadot from '@/assets/img/polkadot.png'
 import network1 from '@/assets/img/network1.png'
 import network2 from '@/assets/img/network2.png'
@@ -481,8 +514,9 @@ import telegram from '@/assets/img/telegram.svg'
 import twitter from '@/assets/img/twitter.svg'
 import email from '@/assets/img/email.svg'
 import website from '@/assets/img/website.svg'
-import github from '@/assets/img/github.svg'
+import github from '@/assets/img/github.png'
 import medium from '@/assets/img/medium.svg'
+
 import tokenRaze from '@/assets/img/token-raze.gif'
 export default {
   name: 'Homepage',
@@ -494,9 +528,14 @@ export default {
       homeImgHeight: '',
       issafariBrowser: '',
       breatheStyle: {},
+      bannerStyle: {},
+      bannerTextStyle: {},
+      bannerTextPStyle: {},
       isSmallHeight: false,
       play: play,
+      doc: doc,
       strategic: strategic,
+      mediaPress: mediaPress,
       polkadot: polkadot,
       network1: network1,
       network2: network2,
@@ -614,6 +653,18 @@ export default {
         width: `${clientHeight - 250}` + 'px',
         height: `${clientHeight - 250}` + 'px'
       }
+      this.bannerStyle = {
+        width: `${clientHeight - 130}` + 'px'
+      }
+      this.bannerTextStyle = {
+        fontSize: ((clientHeight - 150) * 35 / 573) + 'px',
+        lineHeight: ((clientHeight - 150) * 35 / 573) + 'px'
+      }
+      this.bannerTextPStyle = {
+        width: `${clientHeight - 190}` + 'px',
+        fontSize: ((clientHeight - 150) * 20 / 573) + 'px',
+        lineHeight: ((clientHeight - 150) * 24 / 573) + 'px'
+      }
       this.rowType = 'flex'
     }
     window.onresize = () => {
@@ -672,6 +723,9 @@ export default {
     goAnchor (selector) {
       this.$el.querySelector(selector).scrollIntoView();
     },
+    toWhitepaper() {
+      window.location.href = "https://docsend.com/view/nea4rj23f28z5b98";
+    },
     toPolkadot() {
       window.location.href = "https://polkadot.network/";
     }
@@ -686,7 +740,7 @@ export default {
     padding: 2px;
     font-size: 18px;
     img {
-      width: 10px;
+      width: 20px;
       margin-right: 8px;
     }
   }
@@ -694,7 +748,7 @@ export default {
 .first-polkadot {
   text-align: left;
   img {
-    width: 60px;
+    width: 50px;
     margin-right: 12px;
   }
 }

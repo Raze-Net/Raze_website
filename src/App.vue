@@ -9,12 +9,17 @@
         </div>
         <div class="cui-content-center" style="height: 4.5rem">
           <el-row type="flex" justify="space-between" class="menu">
-            <el-col :span="8" class="hy-text-left">
-              <el-image :src="logo" class="logo" @click="goAnchor('#top')"></el-image>
+            <el-col :span="6" class="hy-text-left">
+              <el-image :src="logo" class="logo" @click="goHome()"></el-image>
             </el-col>
-            <el-col :span="16" class="menu-width">
+            <el-col :span="18" class="menu-width">
               <el-menu :default-active="activeIndex" class="el-menu" mode="horizontal" :text-color="textColor"
                        active-text-color="#de637a" :background-color="backgroundColor">
+                <el-menu-item index="8">
+                  <div @click="goTokenSale()">
+                    <span>Token Sale</span>
+                  </div>
+                </el-menu-item>
                 <el-menu-item index="1">
                   <div @click="goAnchor('#Technology')">
                     <span>Technology</span>
@@ -38,10 +43,21 @@
                 <el-menu-item index="5" class="raze-docs">
                   <span>Docs<i class="el-icon-caret-right"></i></span>
                   <div class="pop big">
+                    <a target="_blank" href="https://docsend.com/view/nea4rj23f28z5b98">Whitepaper</a>
                     <a target="_blank" href="https://docs.raze.network/">Project Wiki</a>
                     <a target="_blank" href="https://docsend.com/view/5yajjk29muy8nqm3">One Pager</a>
                     <a target="_blank" href="https://docsend.com/view/3p2pszj9cqqpjrzs">Marketing Deck</a>
                   </div>
+                </el-menu-item>
+                <el-menu-item index="6">
+                  <a href="https://t.me/Raze_Net" target="_blank">
+                    <img :src="twitter1" alt="">
+                  </a>
+                </el-menu-item>
+                <el-menu-item index="7">
+                  <a href="https://twitter.com/R4ZE_Network" target="_blank">
+                    <img :src="telegram1" alt="">
+                  </a>
                 </el-menu-item>
               </el-menu>
             </el-col>
@@ -55,7 +71,7 @@
         </div>
         <el-row type="flex" justify="space-between" align="middle" class="nav-mobile">
           <el-col :span="5">
-            <el-image :src="logo" class="logo" @click="goAnchor('#top')"></el-image>
+            <el-image :src="logo" class="logo" @click="goHome()"></el-image>
           </el-col>
           <el-col :span="19" class="header-nav-overflow position-relative">
             <div class="headMoreBtnBox" @click="showMobileMenu = !showMobileMenu">
@@ -66,6 +82,7 @@
               </div>
             </div>
             <div class="mobile-menu" :class="{ 'show-menu': showMobileMenu }">
+              <div @click="goTokenSale()" :class="{ 'menu-select': activeIndex === '8' }">Token Sale</div>
               <div @click="goAnchor('#Technology')" :class="{ 'menu-select': activeIndex === '1' }">Technology</div>
               <div @click="goAnchor('#Products')" :class="{ 'menu-select': activeIndex === '2' }">Products</div>
               <div @click="goAnchor('#Token')" :class="{ 'menu-select': activeIndex === '3' }">Token</div>
@@ -73,10 +90,19 @@
               <div class="raze-mobile-docs" @click="isShowDoc" :class="{ 'show_pop': showDoc, 'hidden_pop': !showDoc }">
                 <span>Docs<i class="el-icon-caret-right"></i></span>
                 <div class="pop big">
+                  <a target="_blank" href="https://docsend.com/view/nea4rj23f28z5b98">Whitepaper</a>
                   <a target="_blank" href="https://docs.raze.network/">Project Wiki</a>
                   <a target="_blank" href="https://docsend.com/view/5yajjk29muy8nqm3">One Pager</a>
                   <a target="_blank" href="https://docsend.com/view/3p2pszj9cqqpjrzs">Marketing Deck</a>
                 </div>
+              </div>
+              <div class="mt-3">
+                <a href="https://t.me/Raze_Net">
+                  <img :src="telegram1" alt="">
+                </a>
+                <a href="https://twitter.com/R4ZE_Network">
+                  <img :src="twitter1" alt="">
+                </a>
               </div>
             </div>
             <!-- <el-menu :default-active="activeIndex" class="el-menu d-flex" mode="horizontal" :text-color="textColor"
@@ -106,7 +132,7 @@
         </el-row>
       </el-header>
 
-      <router-view/>
+      <router-view />
 
       <!-- <el-footer class="background-even hy-text-left">
         <div class="cui-content-center">
@@ -137,6 +163,8 @@
 <script>
 
 import url_img from '@/assets/logo.png'
+import telegram1 from '@/assets/img/telegram1.svg'
+import twitter1 from '@/assets/img/twitter1.svg'
 export default {
   name: 'App',
   data() {
@@ -152,7 +180,9 @@ export default {
       showMobileMenu: false,
       backgroundColor: 'transparent',
       issafariBrowser: '',
-      textColor: '#fff'
+      textColor: '#fff',
+      telegram1: telegram1,
+      twitter1: twitter1,
     }
   },
   mounted() {
@@ -169,20 +199,22 @@ export default {
       this.isTop = true;
       this.isTop ? this.searchBarFixed = true : this.searchBarFixed = false;
       // this.isTop ? this.textColor = '#000' : this.textColor = '#fff';
-      let activeTechnology = document.getElementById('Technology').offsetTop - scrollTop;
-      let activeProducts = document.getElementById('Products').offsetTop - scrollTop;
-      let activeToken = document.getElementById('Token').offsetTop - scrollTop;
-      let activeRoadmap = document.getElementById('Roadmap').offsetTop - scrollTop;
-      if (activeTechnology < 0) {
-        this.activeIndex = '1';
-      } if (activeProducts < 0) {
-        this.activeIndex = '2';
-      } if (activeToken < 0) {
-        this.activeIndex = '3';
-      } if (activeRoadmap < 0) {
-        this.activeIndex = '4';
-      } if (scrollTop <= 200) {
-        this.activeIndex = '';
+      if (document.getElementById('Technology')) {
+        let activeTechnology = document.getElementById('Technology').offsetTop - scrollTop;
+        let activeProducts = document.getElementById('Products').offsetTop - scrollTop;
+        let activeToken = document.getElementById('Token').offsetTop - scrollTop;
+        let activeRoadmap = document.getElementById('Roadmap').offsetTop - scrollTop;
+        if (activeTechnology < 0) {
+          this.activeIndex = '1';
+        } if (activeProducts < 0) {
+          this.activeIndex = '2';
+        } if (activeToken < 0) {
+          this.activeIndex = '3';
+        } if (activeRoadmap < 0) {
+          this.activeIndex = '4';
+        } if (scrollTop <= 200) {
+          this.activeIndex = '';
+        }
       }
     },
     isShowDoc() {
@@ -196,15 +228,25 @@ export default {
       this.$i18n.locale= lang;
     },
     goAnchor (selector) {
-      // this.activeIndex
+      this.$router.push({ path: '/'})
       this.showMobileMenu = false;
-      this.$el.querySelector(selector).scrollIntoView({ block: 'start', behavior: 'smooth' });
+      setTimeout(() => {
+        this.$el.querySelector(selector).scrollIntoView({ block: 'start', behavior: 'smooth' });
+      },10)
+    },
+    goTokenSale () {
+      this.activeIndex = '8';
+      this.$router.push({ path: 'tokenSale'})
     },
     reload () {
       location.reload();
     },
-    toComingSoon () {
-      this.$router.push({ path: 'comingSoon'})
+    goHome () {
+      this.$router.push({ path: '/'})
+      setTimeout(() => {
+        this.goAnchor('#top');
+        this.activeIndex = '';
+      },10)
     }
   }
 }

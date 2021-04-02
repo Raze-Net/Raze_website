@@ -8,7 +8,8 @@ import VueI18n from 'vue-i18n'
 import 'element-ui/lib/theme-chalk/index.css';
 import 'element-ui/lib/theme-chalk/display.css';
 import './style/element-library.css'
-import './style/homepage.less'
+import './style/homepage_old.less'
+import './style/token-sale.less'
 import './style/index.less'
 import en from './lang/en';
 import zh from './lang/zh';
